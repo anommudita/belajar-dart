@@ -1,0 +1,1412 @@
+Dart Dasar
+
+Agenda :
+- Pengenalan Dart
+- Menginstall Dart
+- Membuat Project Dart 
+- Tipe Data
+- Operator
+- Percabangan 
+- Perulangan
+- Function 
+- Lain-lain
+
+
+Pengenalan Dart 
+- Dart merupakan bahasa pemrograman baru yang pertama kali diperkenalkan tahun 2011
+- Dart dibuat di google oleh Lars Bak dan Kasper Lund
+- Dart merupakan bahasa pemrograman yan awalnya di buat Frontend(web dan mobile), namun Dart juga sebenarnya bisa digunakan untuk Backend, namun memang lebih populer penggunaann di Frontend.
+- Dart merupakan bahasa pemrograman yang Open Source
+ 
+
+Dart Software Development Kit
+- Dar merupakan bahasa pemrograman yang multi platform, artinya bisa di install di berbagai sistem operasi, seperti Windows, Linus dan Mac
+- Untuk membuat aplikasi menggunakan bahasa pemrograman Dart, kita membutukan Dart SDK(Software Development Kit)
+- SDK ini digunakan untuk komplikasi kode program Dart yang kita buat dan juga menjalankan kode program Dart yang kita buat
+
+Menginstall Dart SDK
+- untuk menginstall Dart SDK, kita bisa download aplikasi Dart SDK sesuai sistem operasi yang kita gunakan 
+
+Dart SDK 
+- Saat kita menginstall Dart SDK,Dart memiliki banyak sekali executable file yang bisa diakses via terminal/command line
+- Aplikasi tersebut bisa digunakan untuk membuat project, melakukan kompilasi sampai menjalankan kode program
+- Banyak aplikasi yang terdapat di dalam Dart SDK, yang akan kita pelajari secara bertahap
+
+
+Executable File Dart
+- Salah satu executable yang akan banyak kita gunakan adalah menggunakan executable file dart di dalam folder bin
+- File dart ini digunakan untuk membuat project, melakukan kompilasi kode program dan menjalankan aplikasi Dart
+
+Membuat Project 
+- untuk membuat project Dart, kita gunakan perintah : dart create nama_project
+
+Membuka project 
+- saat nama project secara otomotis akan dibuat folder baru dengan nama sesuai dengan nama projectnya
+- selanjutnya, silahkan buka project tersebut menggunakan text editor yang kita gunakan
+
+Struktur Project 
+- Folder .dart_tools
+- Folder .idea
+- Folder bin(fokus ke bin) :
+1. nama_file.dart
+- git nore, packages, analysis_options.yaml,CHANGELOG.md,pubspec.lock,pubspec.yaml,README.md(file project generator)
+
+
+Program Hello World
+- Saat belajar bahasa pemrograman, biasanya hal yang pertama dilakukan adalah membuat aplikasi HELLO WORLD
+- Aplikasi Hello World adalah aplikasi sederhana yang menampilkan tulisan Hello World
+- Kode Program Dart, disimpan dalam file dengan file extention .dart
+- Dart mirip dengan bahasa pemrograman Java, setiap akhir statement dalam kode program, diakhiri dengan karakter titik koma
+
+Dart Main Function 
+- Dart hampir mirip dengan bahasa pemrograman seperti C, Java, kotlin(android studio) atau Go-Lang
+- Saat kita membuat kode program Dart, kita harus membuat main function terlebih dahulu 
+- Main Function merupakan fungsi utama yang akan di eksekusi oleh Dart
+
+Function Print
+- Untuk menampilkan tulisan di Dart, kita bisa menggunakan function print
+- Print memiliki parameter data string/text, dimana data tersebut bisa menggunakan kutip satu atau kutip dua
+- Misal jika kita ingin menampilakan tulisan : Hello World, kita bisa membuat kode program print("Hello World") atau prinf('Hello World')
+
+Menjalankan Kode Program Dart 
+- untuk menjalankan kode program yang sudah kita buat, kita bisa menggunakan executable file dart, caranya dengan cara menggunakan perintah run, lalu kita diikuti lokasi file dart yang ingin kita eksekusi, misal : 
+ local/file: dart run bin/nama_file.dart
+
+
+Variable 
+- Variable merupakan tempat untuk menyimpan data, ada banyak sekali tipe data di Dart, akan kita bahas di materi-materi tersendiri
+- Variable sangat berguna ketika kita ingin menggunakan data yang sama berkali-kali, dibandingakan kita buat berulang-ulang, lebih baik kita simpan data tersebut dalam variable
+- Variable wajib memiliki tipe data dan nama variable, ketika kita akan mengakses variable tersebut, kita cukup menyebutkan nama variablenya
+
+Membuat Variable
+- Untuk membuat deklarasi variable, kita bisa gunakan format :
+TipeData namaVariable;
+- Biasanya penamaannya variable di Dart menggunakan camelCase, seperti firstName, lastName, thisLongVariableName
+- Setelah mendekrasikan variable, kita kita bisa mengubah isi variable dengan cara : namaVariable = is valuenya
+- Kode Variablenya seperti dibawah ini :
+ 	String nameLengkap;
+		namaLengkap ='Ida Bagus Anom Mudita';
+
+Deklarasi Langsung 
+- Variable juga bisa dibuat langsung dengan deklarasi nilainya, ini sangat cocok jika kita ingin membuat variable langsung dengan value dari variable-nya
+- cara membuatnya kita bisa gunakan perintah : TipeData namaVariable = isi variable atau value variablenya;
+- Contohnya seperti : 
+	String namaLengkap = 'Ida Bagus Anom Mudita';
+
+Kata kunci Var
+- Saat kita membuat variable langsung dengan nilainya, kita bisa menggunakan kata kunci var sebagai pegganti TipeData-nya
+- Ini mirip dengan bahasa pemrograman seperti Java, Go-Lang, Kotlin, dan lain-lain
+- TipeData akan dibaca sesuai dengan isi nilainya otomatis oleh Dart, sehingga kita tidak perlu menyebutkan TipeData-nya lagi
+- Cara menggunakan kata kunci var, seperti ini : 
+   var namaVariable = value; ==> jika mendeklariskan variable dengan cara ini maka menjadi dynamic
+
+Kata Kunci final
+- Secara default, variable di Dart dideklarasikan ulang, artinya jika sebelumnya kita membuat variable namaLengkap dengan value "Ida Bagus Anom Mudita", kita bisa ubah nilai variable tersebut menjadi "Gusmang Ananda", dengan cara namaLengkap = "Gusmang Ananda";
+- Kadang ada kasus dimana kita tidak ingin sebuah variable bisa dideklarasikan ulang. untuk melakukan itu kita bisa gunakan kata kunci final :
+	final TipeData namaVariable = value; atau
+	final namaVariable= value;
+
+Kata Kunci const
+- kata kunci final digunakan agar variable tidak bisa dideklarasikan ulang, namun nilai dari variable nya sendiri bisa diubah
+- di Dart terdapat kata kunci constant, digunakan untuk menjadikan variable dan nilainya menjadi immutable(tidak bisa diubah sama sekali)
+- Kata kunci const akan menjadi data di hardcode pada saat Dart melakukan kompilasi kode program, jadi hati-hati ketika menggunakan kata kunci const
+- Misal jika kita membuat data waktu saat ini menggunakan final, maka variable waktu akan selalu mengikuti waktu saat ini, namun jika menggunakan const, nilai waktu akan di hardcode ketika kode program di kompilasi, sehingga tidak akan pernah berubah
+
+- Pointnya final tidak bisa dibuat ulang nilainya sedangkan const sama sekali tidak bisa diubah apapun
+  Contoh : 
+	final array1[1,2,3];
+	const array2[1,2,3];
+
+	array1[0] = 10; ==> bisa diubah data dengan catatan tidak bisa dibua ulang
+	array1 = [20,20,20]; ==> jika seperti ini maka akan eror 
+
+	array2[0]= 20; ==> tidak sama sekali 
+	array2 = [20,20,20];
+
+
+Kata Kunci late
+- Di Dart, secara standar, variable akan dideklarasikan nilainya ketika variable dibuat
+- Namun kadang ada kasus dimana kita ingin variable dideklarasikan nanti saja, ketika memang variable tersebut diakses, jika tidak diakses, tidak perlu di deklarasikan
+- Untuk melakukan hal ini, kita bisa tambahkan kata kunci late di awal deklarasi variable 
+
+  Contoh supaya anda lebih mengerti lagi:
+
+	late var value = getValue();  ==> jika kita tidak berikan kata kunci late maka yang dijalankan terlebih dahulu ialah nilai fungsi lalu nailai print kita buat 						sedangkan jika diberi maka sebaliknya 
+	print('Variable sudah dibuat');
+	print(value);
+
+
+	String getValue(){
+	  print('getValue() dipanggil')
+	  return 'Ida Bagus Anom Mudita';
+	}
+
+Komentar 
+- Komentar adalah kode program yang akan diabaikan ketika kode programa di compile atau dijalankan 
+- Biasanya komentar digunakan untuk menambahkan dokumentasi pada kode program
+- Di Dart, ada beberapa jenis komentar
+
+Jenis Komentar : 
+1 Single-line atau satu baris, bisa menggunakan perintah : 
+   // silahkan masuk komentar disini
+2 Multi-line atau lebih dari satu baris, bisa menggunakan perintah :
+  /* 
+     isi komentar goblok!	
+  */
+3 Documentation, ini adalah jenis komentar yang biasanya digunakan sebagai dart documentasi :
+  /// isi documentasi goblok!
+
+
+Tipe data Number 
+- Number adalah tipe data angka, terdapat dua jenis tipe data Number, int, dan double
+- Int adalah tipe data bilangan bulat
+- Double adalah tipe data bilangan desimal
+- Penulisan koma dalam double menggunakan titik, Bukan kom jadi kita akan membuat bilangan desimal 0,5(nol koma 5), maka ditulis 0.5
+
+Implemenatasi code : 
+int number1 = 10;
+double number2= 10.5;
+
+print(number1);
+print(number2);
+---------------------------------------------------------------------------------------------------------------------
+Tipe Data Num(Flexbile bisa menggunakna keduanya)
+- Jika kita ingin menggunakan tipe data number yang bisa int ataupun double, kita bisa menggunakan tipe data num
+
+Implementasi Code:
+
+num number = 10;
+print(number);
+
+number = 10.5;
+print(number);
+
+
+
+Tipe data Boolean 
+- Boolean adalah tipe data yang hanya memiliki dua nilai, yaitu benar atau salah 
+- Boolean direpresentasikan dengan kata kunci bool
+- Untuk nilai besar, menggunakan kata kunci true
+- Untuk nilai salah, menggunakan kata kunci false
+
+Implementasi Code:
+
+bool finish = false
+print(finsih);
+
+finish = true;
+print(finish);
+
+
+
+Tipe Data String
+- String merupakan tipe data text atau tulisan
+- Untuk membuat String, kita bisa menggunakan tanda kutip satu atau dua lalu didalamnya berisi nilai text nya
+- Walaupun String bisa menggunakan kutip dua, tapi di sarankan oleh dart untuk menggunakan kutip satu saja
+
+Implemntasi Code:
+
+String firstName ='Anom';
+String lastName = "Mudita";
+
+print(firstName);
+print(lastName);
+
+
+Didalam dart ada fitur Stirng Interpolation
+- String mendukung expression, dimana didalam expression kita bisa mengambil data dari variable lain, contoh nah kita ingin membuat string tapi datanya mengambil di variable lain nah kita bisa menggunakan String Interpolation ini.
+- Untuk membuat expression, kita bisa menggunakan format ${isiExpression}, jika sederhana kita bisa langsung menggunakan $isiExpression
+
+Implementasi Code:
+
+String firstName='Anom';
+String lastName='Mudita';
+
+var fullName= '$firstName atau ${lastName}';
+
+print(fullName);
+
+
+
+Karakter Backslash
+- Karakter \(Backslash) di String bisa digunakan untuk menekankan bahwa karakter setelahnya dianggap benar karakter tersebut
+- Seperti contohnya sebelum karakter $ dianggap expression, jika kita memang mau membuat karakter $ dalam string, maka kita bisa gunakan \$, atau jika mau membuat karakter '(petik satu), kita bisa gunakan \'
+
+Implementasi Code:
+
+var text = ' this is \'dart\' \$Cool';
+print(text);
+
+
+Menggabungkan String
+- Kadang ada kebutuhan kita perlu menggabungkan beberapa data String
+- Untuk menggabungkan beberapa data String, kita bisa menggunakan karakter +(tambah)
+- Atau jika datanya tidak dalam bentuk variable, kita bisa langsung tambahkan hanya dengan karakter whitespace(spasi, enter , tab)
+
+Implementasi Code :
+
+var name1 = firstName + " " + lastName;
+var name2 = 'Ida' ' Bagus' ' Anom' ' Mudita';
+
+print(name1);
+print(name2);
+
+
+Fitur Multiline String
+- Kadang kita butuh membuat String yang sangat panjang, sehingga jika kita buat dalam satu baris kode, kode tersebut akan terlalu panjang
+- String  mendukung pembuatan data secara multiline, caranya dengan menggunakan petik satu atau petik dua sebanyak tiga karakter
+
+Implementasi Code:
+
+Var longString ='''
+This Long String     ==> enter pun dianggap juga seperti cintaku padamu 
+Multiline String
+Learning Dart
+''';
+
+print(longString);
+
+
+
+Tipe data Dynamic
+- kadang ada kebutuhan kita ingin membuat variable yang bisa menampung semua jenis tipe data 
+- Pada kasus ini, kita bisa menggunakan tipe data dynamic
+
+
+Implementasi Code : 
+
+dynamic variable = 100;
+print(variable);
+
+variabel = true;
+print(variable);
+
+variable = 'Anom Mudita';
+print(variable);
+
+
+Konversi Tipe Data
+- Kadang ada kebutuhan kita melakukan konversi tipe data, terutama dari tipe data String ke Number dan Boolean, atau bahkan kebalikannya
+- Hal ini biasa kita lakukan ketika misal menerima input dari penggunanya aplikasi kita, dimana biasanya input dalam bentuk String, dan kita butuh melakukan konversi ke tipe data yang kita inginkan misal Number atau Boolean
+
+Konversi Number dan String
+- Dart merupakan bahasa pemrograman berorientasi objek, semua tipe data di Dart adalah object, dimana object memiliki method/function
+- Kita bisa menggunakan method toString() untuk melakukan konversi dari Number ke String
+- Sedangkan untuk melakukan konversi dari String ke Number, kita bisa menggunakan method parse(), baik itu di int ataupun di double
+- Sedangkan jika kita ingin melakukan konversi dari Number ke Number lain, kita bisa gunakan method toInt() atau toDouble()
+
+Implementasi Code :
+
+var inputString = '1000'; ==> jika mau konversi harus benar-benar angka ya dan sesuai dengan kebutuhannya
+var inputInt = int.parse(inputString);
+var inputDouble = double.parse(inputString);
+
+var doubleFromInt = inputInt.toDouble();
+var intFormDouble = inputDouble.toInt();
+
+var stringFromInt = inputInt.toString();
+var stringFromDouble = inputDouble.toString(); 
+
+
+Konversi Boolean dan String
+- Untuk melakukan konversi tipe data Boolean ke String, kita bisa gunakan method toString()
+- Sedangkan untuk melakukan konversi tipe data String ke Boolean, tidak ada caranya, oleh karena itu untuk melakukan hal ini, biasanya menggunakan operator perbandingan, yang akan kita bahas di materi tersendiri
+
+Implementasi Code :
+
+var inputString = 'true';
+var inputBool = inputString == 'true';
+
+var stringFromBool = inputBool.toString();
+
+
+
+Operator Aritmatika
+
+1. +  			= Pertambahan
+2. -, -expression	= Pengurangan atau Negatif
+3. *  			= Perkalian
+4. /			= Pembagian, hasil Double
+5. ~/			= Pembagi Hasil int
+6. % 			= Sisa Bagi
+
+Implementasi Code :
+
+var first = 10;
+var second = 3;
+
+print(first + second);
+print(first - second);
+print(first * second);
+print(first / second);
+print(first ~/ second);
+print(first % second);
+
+
+Operator Perbandingan 
+- Operator Perbandingan adalah operator yang hasilnya adalah bool
+- Operator Perbadingan bisa digunakan tipe data number dan string
+
+1. ==		: Sama dengan
+2. !=		: Tidak sama dengan
+3. >		: Lebih dari
+4. <		: Kurang dari
+5. >=		: Lebih dari atau sama dengan 
+6. <= 		: kurang dari atau sama dengan
+
+
+Operator Penugasan 
+- Operator Aritmatika   		- Augmented Assignments(tugas tambahan atau disingkat menjadi seperti ini )
+1. a = a + 10				: a += 10	
+2. a = a - 10				: a -= 10
+3. a = a * 10				: a *= 10 
+4. a = a / 10				: a /= 10
+5. a = a ~/ 10				: a ~/= 10
+6. a = a % 10 				: a %= 10
+
+
+Increment dan Decrement
+- Operator			Keterangan
+1. ++var			: var = var + 1 (expression is var + 1)  
+2. var++			: var = var + 1 (expression is var)
+3. --var			: var = var - 1 (expression is var - 1 )
+4. var--			: var = var -1 (expression is var)
+
+++var dengan var++ apa bedanya?? yuk lihat Implementasi codenya
+
+  var i = 0;
+  i++ = i + 1
+  var j = i++; ==> nilai j = i, baru nilai i++
+  var k = ++i; ==> nilai k = i . (++i) 
+
+
+Operator Logika
+- Operator Logika adalah Operator untuk dua buah data bool
+- Hasil dari operator logika adalah bool lagi 
+
+Operator Logika 			Keterangan
+&& atau and				: Dan
+|| atau or				: Atau
+!					: Kebalikan
+
+
+Operator Type Test 
+-Operator 		-Keterangan
+1. as			: Typecast, melakukan konversi tipe data secara paksa, mengetahui isi variable dengan tipe data dynamic
+2. is			: true, jika object sesuai tipe data 
+3. is! 			: true, jika object tidak sesuai tipe data 
+
+
+List
+- list merupakan tipe data yang berisikan kumpulan data
+- Di bahasa Pemrograman lain, tipe data ini dikenal dengan tipe data Array
+- Saat kita membuat List, kita perlu menentukan isi dari tipe data List
+- Untuk membuat data list kita bisa menggunakan []
+- Di Dart, semua tipe data adalah object, dimana List sendiri memiliki property, method dan operator
+- Sekarang kita akan bahas beberapa method dan operator di List, untuk lebih detail nanti kita akan bahas : api.dart.dev
+
+Membuat List 
+- Untuk membuat list, kita bisa tentukan tipe datannya, misal :
+  List<TipeData> namaVariable=[]
+- Atau Bisa menggunakan kata kunci var atau final :
+  var namaVariable = <TipeData>[];
+  final namaVariable =<TipeData>[]; ==> masih kosong
+
+Menambahkan data di List
+- Data didalam List, bisa kita tambah lebih dari satu, anggap aja List adalah sebuah tabel, dimana kita bisa menanbahkan banyak baris di tabelnya
+- Ukuran List akan secara otomatis bertambah ketika kita menambahkan data ke dalam list
+- Untuk menambahkan data ke list, kita bisa gunakan method add(value)
+- Dan untuk mengetahui berapa jumlah ata yang ada di List, kita bisa gunakan property length
+
+
+Index 
+- Selain menambahkan data di List, kita juga bisa mengubah data di List atau mendapatkan data di List
+- Saat kita menambahkan data di List, secara otomatis data tersebut memiliki index(int), index ini digunakan untuk kita bisa mengakses, mengubah atau menghapus data di list
+- Index di List dimulai dari angka 0, dan akan terus bertambah seiring jumlah data yang kita masukkan 
+- Artinya jika kita memiliki jumlah data di List sebanyak length, index terakhir di List adalah Length di kurang 1
+
+
+Manipulasi Data di List
+- Operator Data di List				Keterangan
+1. list.add(value)				: Menambahkan data ke List
+2. list[index]					: Mengambil data di List
+3. list[index] = value				: Mengubah data di List
+4. list.removeAt(index)				: Menghapusdar di List, index secara otomatis akan bergeser
+
+
+
+Deklarasi List Secara Langsung
+- List juga mendukung deklarasi data secara langsung ketika pembuatan variable List
+- Ini mempermudah kita ketika membuat list jika memang datannya sudah siap
+- Caranya bisa gunakan Perintah : 
+  var namaVariable = [value1, value2, value3];
+  var namaVariable = <TipeData>[value1, value2, value3];
+  var namaVariable =[
+    value1,
+    value2,
+    value3,
+  ]
+
+
+Set
+- Set merupakan tipe data sama seperti List, namun ada beberapa hal yang berbeda dengan list
+- Set tidak menerima data duplikat data, artinya jika kita memasukan data duplikat, hanya satu yang diterima, yang lainnya akan dihiraukan 
+- Set tidak menjamin urutan data, jika dalam List urutan data sudah pasti menggunakan index, pada set tidak ada index, set ini biasanya untuk data yang unik saja 
+
+Membuat Set 
+- Untuk membuat Set, tidak sama dengan membuat List
+- Untuk membuat Set, kita menggunakan{}(kurung kurawal)
+  Set<TipeData> namaVariable ={};
+  var namaVariable =<TipeData>{};
+
+
+Implemntasi Code : 
+Set<int>numbers ={};
+var strings =<String>{};
+var doubles = <double>{};
+
+
+
+Memanipulasi Set:
+set.length			= mendapatkan panjang set
+set.add(value=bukan index lagi tapi langsung nilainya)		= menambahkan data ke set
+set.remove(vale)		= menghapus data dari set
+
+Tidak bisa mengubah data karena tidak ada index-nya, jika mau mengubah data harus menghapus dulu baru tambah data_baru ke set
+
+
+Implementasi Manipulasi Set
+var names = <String>{};
+names.add('Anom');
+names.add('Anom'); ===> tetap saja yang dibaca cuma 1 karena jika duplikat maka dihiraukan 
+names.add('Mudita');
+names.add('Ajarin Dong');
+
+print(names);
+print(name.length);
+
+
+name.remove('tidak ada') ==> walaupun nilainya tidak maka tidak eror ya hiraukan saja hal tersebut wkwkw
+names.remove('anom');
+print(names);
+
+
+
+Deklarasi Set Secara Langsung 
+- set juga mendukung deklarasi langsung data secara langsung ketika pembuatan variable Set
+- Ini mempermudah kita ketika membuat Set jika memang datannya sudah siap
+- Caranya bisa gunakan perintah :
+var NamaVariable ={value1, value2, value3};
+var NamaVariable =<TipeData>{value1,value2,value3}
+var NamaVariable = {
+	value1,
+	value2,
+	value3,
+}
+
+
+
+
+Map
+- Map adalah tipe daya key-value, key mirip seperti index, dan value adalah datanya
+- Sekilas mirip dengan List, yang membedakan adalah index pada List sudah di atur oleh List secara otomatis, dan nilainya berupa int auto increment dimulai dari 0.
+- Sedangkan pada Map, key nya bisa ditentukan dengan tipe data apapun, dan kita perlu tentukan secara manual key-nya ketika memasukan valuenya
+- Jika kita memasukan dengan key yang sudah ada, otomatis data dengan key lama akan diganti dengan data yang baru
+
+Membuat  Map
+- untuk membuat Map, Kita menggunakan perintah sebagai berikut
+Map<TipeKey, TipeValur> namaVariable={};
+var namaVarible = Map<TipeKey,TipeValue>();
+var namaVariable =<TipeKey,TipeValue>{};
+
+
+Implementasi Code :
+Map<String,String> map1={};
+var map2 = Map<String,String>();
+var map3 =<String, String>{};
+
+print(map1);
+
+
+Manipulasi Map :
+map.length			=mendapatkan panjang Map
+map[key]			= mendapatkan data di Map atau melihat
+map[key] = value		= Mengubah data di Map
+map.remove(key)		 =menghapus data di Map 
+
+
+Implementasi Code :
+
+Map<String,String> map1 ={};
+var map2 =Map<String, String>();
+var map3=<String,String>{};
+
+print(map1);
+
+var name=<String,String>{};
+name['First] = 'Anom';
+name['Middle'] = 'Mudita';
+name['Last'] = 'AjarinDong';
+
+
+print(name); ==> semua data akan ditampilkan
+print(name['first']); ==> menampilakan data sesuai key yang dipanggil
+
+name[Middle]='Gusmang'; ==> data middle akan ganti dengan data yang baru
+
+
+
+Deklarasi Map Secara langsung 
+- Map juga mendukung deklarasi data secara langsung ketika pembuatan variable Map
+- ini mempermudah kita ketiak mebuat Map jika memang datannya sudah siap 
+- Caranya bisa gunakan perintah : 
+Var namaVariable = <String, String>{ ==> jika diberikan tipe_data maka akan automatis dengan tipe data valuenya
+	key1:value1,
+	key2:value2,
+	key3:value3,
+} 
+
+
+Symbol 
+- Simbol merupakan tipe data yang sebenarnya jarak sekali digunakan
+- Symbol sebenarnya digunakan sebagai constant saja
+- Untuk membuat Symbol, kita bisa menggunakan tanda#, atau jika kita butuh membuat Symbol dengan nama yang mengandung spasi , kita bisa gunakan Symbol("text");
+
+
+Implementasi Code :
+Symbol symbol1 = Symbol('Anom Mudita');
+var simbol2 =#belajar_dart;
+
+printf(symbol1);
+printf(symbol2);
+
+
+
+
+If dan Else
+- Didalam Dart, if adalah salah satu kunci yang digunakan untuk percabangan 
+- Percabangan artinya bisa kita mengeksekusi kode program tertentu ketika suatu kondisi terpenuhi
+- Hampir di semua bahasa pemrogrman mendukung percabangan if
+
+
+
+Implementasi Code:
+ var nilai = 70;
+ var absen = 90
+
+if(nilai => 75 && absen >= 75){ ==> harus terpenuhi atau True
+	print('Anda Lulus);
+}
+
+Else 
+- Blok if akan dieskekusi ketika kondisi if bernilai true
+- Kadang kita ingin melakukan eksekusi program tertentu jika kondisi if bernilai else
+- hal ini bisa dilakukan menggunakan else
+
+Implementasi Code :
+var nilai = 70;
+var absen = 90;
+ 
+if (nilai => 75 && absen >= 75){
+	prin('Anda Lulus');
+  }else{
+	print('Anda Tidak Lulus);
+  }
+
+Else if 
+- Kadang dalam If, kita butuh membuat beberapa kondisi
+- Kasus seperti ini, kita bisa menggunakan else if
+- Else bisa ditambahakan sebanyak-banyaknya
+- Ketika salah satu kondisi terpenuhi, maka otomatis akan berhenti , if else selanjutnya tidak akan dieksekusi
+
+
+Implementasi Code :
+
+var nilai = 70
+vari absen = 90 
+if(nilai >= 80 && absen >=80){ ===> tidak dipenuhi maka lanjut ke else if selanjutnya
+ print('Nilai anda A');
+} else if(nilai >= 70 && absen >= 70){ == jika ini terpenuhi maka ini yang dieksekusi
+ print('Nilai anda B);
+}else if(>= 60 &&  absen >= 60){
+ print('Nilai anda C);
+}else if( nilai >= 50 && absen >= 50){
+print('Nilai anad D);
+}else{
+prinf('Anda Tidak Lulus karena nila adan diposisi E');
+}
+
+
+
+
+ 
+Switch Case 
+- Kadang kita hanya butuh menggunakan kondisi sederhana if, seperti hanya menggunakan perbandingan ==
+- Switch adalah statement percabangan yang sama dengan if, namun lebih sederhana cara pembuatannya
+- Kondisi di Switch statement hanya untuk perbandingan == 
+- Di Switch Case akan semua di eksekusi perhatian ya harus menggunakan break
+ 
+
+Implentasi Code :
+// code sederahananya if else
+
+var nilai = 'E';
+
+switch(nilai){
+case 'A':
+ print('Wow Nilai Anda Sangat Keren Sekali');
+ break;
+case 'B':
+case 'C':
+ print('Anda Lulus');
+break;
+case'D':
+print('Anda tidak Lulus);
+break;
+default:
+ print('Mungkin anda Salah Jurusan);
+}
+
+
+
+Null
+- Kata Kunci null merupakan tipe data representasi data kosong( null itu dianggap sebagai objek di OOP di bahasa lain tidak di anggap sebagai objek di dart sebaliknya malah diakui menjadi objek)
+- Secara Default, saat kita membuat variable, data harus disi, jika tidak diisi, maka variable tidak bisa digunakan 
+- Namun jika kita ingin membuat sebuah variable bisa diisi data null(kosong), kita bisa tambahkan karakter?
+(tanda tanya, seperti ini :
+TipeData? NamaVariable = null; ==> tipe data null oke
+
+Impelentasi code :
+
+int number1; ==> tidak boleh kosong 
+int? number2; ==> boleh kosong
+ 
+print(number1); ==> dicompile akan eror karena belum deklarasi data
+print(number2); == dicompile akan berhasil tapi data null ya, data yang akan ditampilan akan null
+
+
+
+
+Ternary Operator
+- Tenary operator adalah operator sederhana dari if
+- Ternary operator adalah terdiri dari kondisi yang dievaluasi, jika menghasilkan true maka nilai pertama diambil, jika false makan nilai kedua diambil
+
+
+-Implementasi Code Tanpa Ternary Operator :
+var nilai = 75;
+String ucapan;
+
+if(nilai>= 75){
+  ucapan = 'Selamat Anda Lulus';
+}else{
+ ucapan ='Selamat Anda Tidak Lulus';
+}
+
+
+- Implementasi Code menggunakan Ternary Operator :
+var nilai=75;
+var ucapan = nilai >= 75 //(kondisinya boolean) ?//(tanda jika benar) 'Selamat Anda Lulus'(true) : 'Selamat Anda Tidak Lulus'(False);
+
+
+Null Safety
+- Beberapa bahasa pemrograman, NullPointerException adalah salah satu kesalahan yang sangat sering dilakukan oleh programmer
+- Biasanya NullPointerException terjadi ketika kita mengakses sebuah data yang ternyata data tersebut adalah null(kosong)
+- Dart Mendukung Null Safety, dimana ini bisa membantu programmer dari melakukan/ mengatasi kesalahan mengakses data yang bisa null
+
+Null Check 
+- Secara Default saat kita akan mengakses property, method, atau property terhadapa data yang nullable(bisa null), maka Dart akan memberi compile eror(tidak bisa karena kita mengakses data yang masih null
+- Dart akan meminta kita melakukan Null Check terlebih dahulu, sebelum mengakses data nullablenya(check dulu apakah data tersebut null)
+
+Contoh Seperti ini :
+
+int? age = null;
+ 
+double ageDouble = age.toDouble(); ==> jika mengakses langsung data itu datanya null akan terjadi eror, karena variable berpontensi data null
+
+cara mengatasinya dengan bantuan kondisi
+
+Implementasi code :
+ int? age = null;
+age = 1; mengeluarkannila supaya tidak kosong wkwk 
+if(age != null){
+double ageDouble = age.toDouble();
+print(ageDouble);
+}
+
+Konversi Nullable ke Non Nullable
+- Untuk melakukan konversi tipe data non nullable ke nullable, kita bisa langsung masukan datanya saja
+- Namun untuk melakukan konversi tipe data nullable ke non nullable, kita wajib melakukan null check terlebih dahulu,seperti tadi ya
+
+implemantasi code :
+
+- non nullable ke nullable ;
+Sting name ='Anom';
+String? nullalbleName = name;
+
+- nullable ke non nullable:
+int? nullableNumber;
+if(nullableNumber != null){
+ int number = nullableNumber;
+}
+
+
+
+Default Value
+- Kadang kita butuh melakukan konversi dari tipe data nullable ke non nullable, namun jika datanya ternyata null, kita ganti deangan default value;
+- Untuk melakukan hal tersebut, kita tidak perlu menggunakan if else, kita cukup menggunakan operator??(tanda tanya dua kali);
+
+Implementasi Kode:
+menggunakan Default Name:
+
+String? guest;
+var guestName = guest ?? 'Guest'; ==> ya udah data Guest akan diambil
+
+
+jika menggunakan if else code: 
+
+String? guest;
+String guestName;
+
+if(guest != null){
+ guestName = guest;
+}else{
+ GuestName ='Guest';
+}
+
+
+jika menggunakan opertaor ternary :
+String? guest;
+String guestName = guest != null? guest: 'Guest';
+
+
+
+Konversi Secara Paksa 
+- Dart mendukung konversi secara paksa dari tipe data nullable ke non nullable dengan menggunakan karakter!(tanda seru) setelah nama variablenya
+- Namun konsekuensinya, jika ternyata datanya null, maka otomatis akan terjadi eror ketika aplikasi berjalan, jadi gunakan secara bijak lah!
+
+implementaasi code :
+int? nullableNumber;
+int nonNullableNumber = nullableNumber!
+
+
+Mengakes Nullable Member
+- Saat kita mengakses nullable member(property, method, operator), maka secara default Dart akan memberi peringatan untuk melakukan null check
+- Namun kita bisa mengakses nullable member saecara aman tanpa harus memaksa melakukan konversi, caranya dengan menggunakan tanda tanya(?)
+- Namun Konsekuensinya, ketika mengakses nullable member, hasil dari member tersebut bisa jadi null kalo datanya ternyata null
+
+
+Implentasi code :
+ int? intNumber;
+double? doubleNumber = intNumber?(singkat tidak menggunakan null check).toDouble(); == secara defaul double ini akan bernilai null juga
+
+
+
+For Loop
+- For adalah sata satu kunci yang bisa digunakan untuk melakukan perulangan
+- Blok kode terdapat di dalam for akan selalu diulangi selama kondisi for terpenuhi(jika true perulangan akan dieksekusi, jika false tidak akan berjalan)
+
+Sintak Perulangan For:
+for(init statement;kondisi;post statement){
+  //blok pe
+}
+
+-Init Statement akan dieksekusi hanya sekali diawal sebelum perulangan
+- Kondisi akan dilakukan pengecekan dalam setiap perulangan, jika true perulangan akan dilakukan, jika false perulangan akan berhenti
+- Post Statement akan dieksekusi setiap kali diakihir perulangan
+- init Statement, kondisi dan Post Statement tidak wajib diisi, jka kondisi tidak diisi, berarti kondisi selalu bernilai true
+
+
+Kode Perulangan Tanpa Henti(infinity) :
+for(;;){
+  print('Perulangan Tanpa Henti');
+}
+
+
+Kode Perulangan Dengan Kondisi 
+var counter = 1;
+
+for(; counter <= 10 ;){
+   print('Perulangan KE-$Counter');
+   counter++; ==> jika tidak isi incerement maka kondisi dianggap benar maka perulangan tanpa henti jadinya wkwk
+}
+
+
+
+Kode : Perulangan Dengan Init Statement:
+for(var counter =1; counter <= 10; counter++){
+	print('Perulangan Ke-$counter');
+}
+
+
+While Loop
+- While Loop adalah versi perulangan yang lebih sederhana dibandingkan for loop
+- Di While loop, hanya terdapat kondisi perulangan, tanpa ada init statement dan post statement
+
+impelementasi Code :
+
+var counter = 1
+
+While(counter <= 10){
+  print('Perulangan Ke-$counter');
+  counter++;
+}
+
+
+
+Do While Loop
+- Do While adalah perulangan yang mirip dengan while
+- Perbedaannya hanya ada pada pengecekan kondisi
+- Pengecekan kondisi di While loop dilakukan di awal sebelum perulangan dilakukan, sedangkan di do while dilakukan setelah perulangan dilakukan(pengecekan diakhir0
+- Oleh karena itu dalam do while loop, minimal pasti sekali perulangan dilakukan walaupun kondisi tidak bernilai true atau bernilai false(minimal jalan sekali walaupun nilainya false)
+
+
+Implenmentasi Code :
+var counter = 100;
+
+
+do{
+  print('Perulangan ke-$counter');
+  counter++;
+}while(couter <= 10); ==> kondisi salah tetep jalan dan jika benar sama seperti for dan while
+
+
+
+Break dan Continue :
+Break & Continue 
+- Pada Switch case kita sudah mengenal kata kunci break, yaitu untuk menghentikan case dalam switch
+- Sama dengan pada perulangan, break juga disini digunakan untuk menghentikan seluruh perulangan
+- Namun Berbeda dengan continue digunakan untuk menghentikan perulangan saat ini, lalu melanjutkan ke perulangan selanjutnya
+
+Break = berhenti mengeksekusi program
+Continue = mengentikan programa saat ini abis lanjut( seperti contoh angka 1 langsung loncat ke 3)
+
+Implementasi Code Break dalam perulangan:
+
+var counter =1;
+
+while(true){ ==> perulangan tanpa batas
+  print('Perulangan Ke-$counter);
+  counter++;
+   
+  if( counter > 10){
+    break;
+  }
+
+}
+
+
+Implementasi Code Continue dalam perulangan :
+
+for(var counter =1; counter <= 100; counter++){
+   if(couter % 2 == 0){ ==> skip bilangan genap
+   countinue;
+ }
+
+  print('Perulangan Ke-$counter');
+
+}
+
+
+
+
+For In ( kek sama seperti foreach) perulangan untuk array, list, set juga bisa
+- kadang kita biasa mengakses data List menggunakan perulagan
+- mengakses data list menggunakan perulangan sangat bertele-tele, kita harus membuat counter, lalu mengakses List menggunakan counter(index) yang kita buat
+- Namun untungnya, terdapat perulangan for in, yang bisa digunakan untuk mengakses seluruh data di Lisr secara otomatis
+
+
+Implenmasi Code menggunakan Perulangan biasa:
+
+var array = <String>['Anom', 'Mudita','Bagus', 'Genjin'];
+
+for (var i = 0; i < array.length; i++){
+   print(array[i]);
+}
+
+
+Implementasi Code menggunakan Perulangan For In(khusus array)
+
+var array =<String>['Anom', 'Mudita', 'Bagus', 'Genjin'];
+
+for ( var value in array ){
+
+   print(value);
+}
+
+
+
+
+Function 
+- Function adalah blok kode program yang akan berjalan saat kita panggil
+- Sebelumnya kita sudah menggunakan method print() untuk menampilankan di console
+- untuk membuat function, kita bisa menggunakan kata kunci void, lalu diikuti dengan nama function,kurung() dan diakhiri dengan block(kurung kurawa)
+- Kita bisa memanggil function dengan menggunakan nama function lalu diikuti dengan kurung()
+- function di bahasa pemrograman lain, Function juga disebut dengan method
+
+
+Implementasi Code :
+
+void sayHello(){
+   print('Hello World');
+} 
+
+
+void main(){
+  sayHello();
+  sayHello();
+}
+
+
+
+Funtion Parameter :
+- kita bisa mengirim informasi ke function yang ingin kita panggil
+- Untuk melakukan hal tersebut, kita perlu menambahakn parameter atau argument di function
+- Cara membuat parameter sama seperti cara membuat variable
+- Parameter ditempatkan di dalam kurung() di deklarasi function
+- Parameter bisa lebih dari satu, jika lebih dari satu, harus dipisah menggunakan tanda koma
+- Ketika memanggil function, kita bisa sebut nama function-nya, lalu gunakan kurung(), jika terdapat parameter dalam kurung(), silahkan masukkan parameter sesuai dengan jumlah parameternya
+
+
+
+implementasi code Function Parameter:
+
+void sayHello(String firstName, String lastName ){
+  print('Hello $fistName $lastName');
+}
+
+void main(){
+
+  sayHello('Anom', "Mudita');
+}
+
+
+
+Optional Parameter 
+- Secara default, parameter wajib dikirim keitka kita memanggil function
+- Namun jika kita ingin membuat parameter yang optional, artinnya tidak wajib dikirim, kita bisa warp dalam kurung[]
+- Dan Parameter Optional haruslah Nullable(kosong njirr!!)
+
+
+Implementasi Code Optional Parameter :
+ 
+void sayHello(String firstName, [String? lastName, int? Number]){ ==> harus nullable ya dan optioanl hanya bisa dibelakang ya 
+  print('Hello $firstname $lastName');
+}
+
+void main(){
+  sayHello('Anom', null); ==> wajib menyebutkan null,ketika parameter tidak menggunakan tanda []
+  sayHello('Anom'); ==> bisa satu data saja jika optioanl yaa
+  say Hello('Anom', 'Mudita',1); ==> bisa 2 karena optional tahuuu!
+
+
+}
+
+
+
+Default Value
+- jika optional parameter tidak ingin nullable, naka kita wajib menambahkan default value
+- Caranya setelah nama parameter kita tambahkan = defaul value
+
+
+Implementasi Code :
+void sayHello(String name, [String addrees ='', String girlFriend = '']){ ==> seperti optional parameter
+  pring('Hello $name $address $ girlFriend');
+}
+
+
+vois main(){
+  sayHello('Anom Mudita');
+
+}
+
+
+
+
+Named Parameter
+- Secara Default, posisi parameter ketika kia memanggil function harus sesuai dengan posisi parameter di function tersebut
+- Dart memiliki fitur unik dengan named parameter, dimana saat memanggil parameter kita bisa menyebutkan nama parameter nya, sehingga posisinya tidak perlu harus sesuai dengan posisi parameter nya
+- Namun ketika membuat function nya m kita perlu melakukan perubahan ketika membuat paramter nya , yaitu dengan menggunakan kurung kurawal[]
+- Secara default, named parameter adalah nullable, sehingga kita perlu tambahkan karakter ?(tanda tanya)
+
+
+Implementasi Code :
+
+void sayHello({String? firstName, Sring? lastName}){
+  print('Hello $firstName $lastName);
+}
+
+
+void main{
+
+sayHello(); ==> mau run tapi data null semua 
+sayHello(first:'Anom'); ==> run mau tapi data last akan null 
+sayhello(firstName: 'Anom', lastName : 'Mudita'); ==> ini yang benar ya jika deklarsi harus menyebutkan variable supaya si dart tidak bingung nantinya
+sayHello(lastName:'Mudita', firstName :'Anom'); ==> mau kebalik dart akan menatanya sesuai parameter yang dibuatnya
+
+}
+
+
+
+Default Parameter Value
+- Karena secara default, named parameter adalah nullable,sehingga secara otomatis ketika memanggil function, kita tidak wajib mengirim paramter tersebut
+- Agar nilai parameter tidak null, kita wajib bisa memberikan default value dengan menambahkan = nilai defaultnya 
+ 
+mirip seperti optional paramter
+
+Implementasi Code :
+
+void sayHello({String firstName ='default', String lastName ='default'}){
+
+  print('Hello $firstName $lastName');
+}
+
+
+void main(){
+
+  sayHello();
+  sayHeloo(firstName ='Anom', lastName='Mudita');
+}
+
+
+Required Parameter
+- Pada named parameter, kitajuga bisa memaksa sebuah parameter menjadi mandotory(alias wajib tahu!), sehingga kita memanggil funcion tersebut, parameter nya wajib ditambahkan
+- Caranya kita bisa tambahkan kata kunci required di awal parameter
+
+void sayHello({required String firstName, String lastName}){
+  
+   print('Hello $firstNams $lastName');
+}
+
+
+void main(){
+ sayHello(); ==> jika seperti ini pasti akan eror dikarena firstName Wajib disi
+ sayHello(FirstName : 'Anom', lastName ='Mudita'); ==> betul dikarenakan wajib harus isi minimal requaired
+
+}
+
+
+Function Return value
+- Secara default, function itu menghasilkan value null,namun jika kita ingin, kita bisa membuat sebuah function yang mengembalikan nilai 
+- Agar function bisa menghasilkan value, kita harus mengubahnya kata kunci void dengan tipe data(int,string, dll) dihasilkan 
+- Dan di dalam block function, untuk menghasilakn nilai tersebut, kita harus menggunakan kata kunci return, lalu diikuti dengan data yang sesuai dengan tipe data yang sudah kita deklarasikan di function
+- Kita hanya bisa menghasilkan 1 data disebuah function, tidak bisa lebih dari satu ==> 1 data saja ya jangan banyak!
+
+
+
+Implementasi Code :
+
+yang salah !:
+ 
+void sayHello(String name){ ==> void diganti string auto benar dah
+  print('Hello $name'); ==> ganti menggunakan return auto benar dah
+}
+
+
+void main{
+ var data = sayHello('Anom Mudita');
+ print(data);
+
+}
+
+
+
+yang benar ! :
+
+int sum(List<int> numbers){
+  for(value in numbers){
+  total += value;
+}
+  return total; ==> cuma bisa 1 data saja ya!
+}
+
+
+void main(){
+
+ print(sum([10,10,10,10,10]));
+
+}
+
+
+Function Short Expression (Shorthand)
+- Dart Mendukung function short expression
+- Dimana jika terdapat sebuah function yang hanya satu baris, kita bisa menyingkatnya secara sederhana
+- Untuk membuat function short expression, kita tidak butuh kurung{} dan juga tidak butuh kata kunci return lagi
+
+
+Implementasi Code :
+
+- sebelum menggunakan Shorthand :
+
+int sum(int first, int second){
+ return 'first+second';
+}
+
+
+void main(){
+print(sum(20,10));
+
+}
+
+
+
+- Menggunakan shorthand :
+
+
+int sum(int first, int second) => first + second;  (====> tanda) => (return) (dan diakhir adalah kalkulasinya seperti) first + second
+
+void main(){
+  print(sum(2,1));
+  print(sum(10,10));
+
+
+}
+
+
+
+Inner Function 
+- Di Dart, kita bisa membuat inner function didalam outer(diluar) function
+- Namun perlu diperhatikan, inner function yang dibuat didalam outer function, hanya bisa diakses dari outer function saja, tidak bisa diakses dari luar outer function
+- Untuk lebih detail tentang ini akan kita bahas di materi tentang Scope(keluasaan/ Area Kekuasaan).
+
+Implementasi Code :
+
+
+void main{
+
+  void sayHello(){
+	print('Hello Inner Function');
+   }
+}
+
+
+===> bisa akses di hanya void main saja untuk function tersebut
+===> Jika luar main atau diatas sebelum main kita panggil maka tidak  berfungsi apapun.
+
+
+
+
+Main Function
+- Kita sudah tahu dari awal, bahkan main function adalah function yang digunakan sebagai gerbang masuk aplikasi Dart
+- Function Main adalah function yang akan dijalankan pertama oleh Dart
+
+Main function Parameter
+- Main Function memiliki sebuah parameter optional, yaitu adalah argument, dimana data parameter tersebut berupa List<String>
+- Data List<String> tersebu diambil secara otomatis ketika kita menjalankan file dart menggunakan 
+  perintah:
+  dart namafile.dart arg1 arg2 arg3
+  data namafile.dart "argument1" "argument2" "argument3"
+
+
+Implementasi Code :
+
+void main(List<String> args){
+ print('Argument : $args');
+
+}
+
+
+Run-nya diterminal ya :
+dart bin/main.dart ===> menampilkan array kosong[]
+dart bin/main.dart ida bagus anom mudita(bisa juga menggunakan tanda petik '') ===> Menampilkan Arguments: [ida,bagus,anom,mudita]
+
+
+Higher Order Function
+- Higher-Order Function adalah  function lain yang menggunakan sebagai variable, parameter atau return value == tidak ada kelas bawah, bisa kek objek gitu
+- Penggunaan Higher-Order Function kadang berguna ketika kita ingin membuat function yang general dan ingin mendapatkan input yang flexible berupa function, yang bisa dideklrasikan oleh pengguna ketika memanggil function tersebut.
+
+
+
+Implementansi Code : Function as Parameter
+
+void sayHello(String name, String function(String) filter){
+// filter = nama function
+// String function(String) = Funtion itu ya dan String itu type parameter-nya
+// Strinh name = parameter name
+
+var filteredName = filter(name);
+print('Hi $filteredName');
+}
+
+
+String filterBadWord(String name){
+
+ if( name == 'gila'){
+    return '****';
+  }else{
+  return 'name';
+  }
+}
+
+void main(){
+ sayHello('anom', filterBadWord);
+ sayHello('gila', filterBadWord)
+
+}
+
+
+
+Anonymous Function
+- Kebanyakan function biasanya memiliki nama, seperti sayHello(), print(), dan lain-lain
+- kita juga bisa membuat function yang tidak memiliki nama, atau disebut anonymous function. Di bahasa pemrograman lain ada yang memangggilnya lambda
+- pembuatan anonymous function mirip seperti function biasanya, namun membedakan adalah tidak ada nama function-nya
+- Biasanya anonymous function sering digunakan ketika memanggil function yang membutuhkan parameter berupa function
+
+
+
+Implementasi Code Anonymous Function as Variable :
+
+// anonymous function disimpan di variabel, dan inget ya ini tetep adalah anonymous function walaupun ada nama variblenya, dan varible itu bukam nama Function
+
+var upperFunction = (String name){
+ return name.toUpperCase();
+}
+
+Shorthand :
+var lowerFunction = (String name) => name.toLowerCase();
+
+print(upperFunction('anom'));
+print(lowerFunction('mudita'));
+
+
+==> selanjutnya hal terpenting 
+
+void sayHello(String name, String Function(String) filter){
+  var  filteredName  = filter();
+  print('Hi $filteredName');
+}
+
+
+void main(){
+ sayHello('Anom Mudita', (name){
+   return name.toUpperCase();
+ });
+
+//shorthand
+ sayHello('Anom Mudita', (String name) => name.toLowerCase());
+
+
+}
+
+
+Scope 
+- Varibale atau function hanya bisa diakses di dalam area dimana mereka dibuat
+- Hal ini disebut scope
+- Contoh, jika sebuah variable  dibuat function, maka hanya bisa diakses di method tersebut atau jika dibuat dalam block, maka hanya bisa diakses ddidalam block tersebut.
+
+Implementasi Code Scope :
+
+void main(){
+var name ='Anom';
+
+
+// sayHello bisa mengakses nilai dari main karena utama atau didalam block main, contoh var name
+ void sayHello(){
+ var hello = 'Hello $name';
+ print(hello);
+ }
+
+ sayHello();
+ print(hello); // eror tidak bisa diakses
+
+}
+
+
+ 
+Closure
+- Closure adalah kemampuan sebuah function atau anonymous function berinteraksi dengan data-data disekitaranya dalam scope yang sama
+- Harap gunakan fitur closure ini dengan bijak saat kita membuat aplikasi(harus bijak terkadang bisa bingung ketika menggunakan banyak closure, kok banyak sekali variable yang di ubah ya:v)==> tersesat kok ubah sendiri ya.
+
+Implementasi Code Closure :
+
+void main(){
+ var counter =0;
+
+ void increment(){
+  print('Increment');
+  counter++;
+  }
+
+increment();
+increment();
+print(counter);  ==> lah kok tiba-tiba berubah sendiri, siapa yang mengubahnya ya, dikarena ada feature closure yang dimana akan berinteraksi dengan variable scope yang sama(incerement function)
+
+ }
+
+
+Recursive Function :
+- Recursive Function adalah function yang memanggil function dirinya sendiri
+- Kadang dalam pekerjaan, kita sering menemukan kasus dimana menggunakan recursive function lebih mudah dibandingkan tidak menggunakan recursivce function
+- Contoh kasus yang lebih mudah diselesaikan menggunakan recursive adalah Factorial(f=10, maka 10*9 , 10*8 dan seterusnya sampai 1), biasanya menggunakan looping tapi kita bisa menggunakan function lebih mudah lo.
+
+Implementasi Code Recursive Function :
+
+#Code Factorial :
+
+int factorialLoop(int value){
+  var result = 1;
+  for(var i =1; i <= value; i++){s
+  result *=i;
+  }
+ return result;
+
+}
+
+void main(){
+print(factorial(10));
+print(1 * 2 * 3 * 4 * 5 * 6 * 7 * 9 * 10 );
+
+}
+
+
+#code Factorial Recursive
+
+int factorialRecursive(int value){
+ 
+ if(value == 1){
+   return 1;  ==> jika faktorial 1 = maka hasilnya adalah 1
+
+  }else{
+  return value * factorialRecursicve(value -1);    //fac(10) => 10 * fac(9) => 10 * 9 * fac(8) => 10 * 9 * 8 * fac(7) 
+  }
+
+}
+
+void main (){
+  print(factorialRecursive(10));
+}
+
+
+Masalah Dengan Recursive
+- Walaupun recursive function itu sangat menarik, namun kita perlu berhati-hati(warning)
+- Jika recursive terlalu dalam, maka akan ada kemungkinan terjadi eror StackOverflow, yaitu eror dimana stack pemanggil function terlalu dalam
+- Kenapa problem ini bisa terjadi? Karena ketika kita memanggil function, Dart akan menyimpannya dalam stack, jika function tersebut memanggil function lain, maka stack akan menumpuk terus , dan jika terlalu dalam, maka stack akan terlalu dalam dan bisa menyebabkan eror StackOverflow
+
+Implementasi Code Recursive jika eror atau Stack Overflow :
+
+ void loop(int value){
+ if(value == 0){
+   print('Selesai');
+ }else{
+   print('Perulangan ke-$value');
+   loop(value - 1);
+ }
+
+}
+
+void main(){
+
+ print(loop(100000)); ==> jika 100.000 di input maka eror, karen jika kita membuat program akan banyak sekali function maka dari ternyata hasil function ini hanya sampai 100.000 ribu aja:v
+
+ }
+
+
+Materi Selanjutnya :
+- Dart Object Oriented Programming
+- Dart Standar Library
+- Dart Packages 
+- Dart Unit Test
+- Dart Async
+
+
+
+
